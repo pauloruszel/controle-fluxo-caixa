@@ -50,7 +50,7 @@ Para usar a API, é necessário ter o Docker e o Docker Compose instalados.
 ## Clone o repositório:
 
 ```
-git clone https://github.com/pauloruszel/fluxo-caixa.git
+git clone https://github.com/pauloruszel/controle-fluxo-caixa.git
 ```
 ## 📁 Entre na pasta do projeto:
 ```

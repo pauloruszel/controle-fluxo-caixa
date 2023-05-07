@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  app:
+    image: fluxo-caixa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+      - 1979:1979
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - SPRING_DATASOURCE_URL=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.h2.Driver
+      - SPRING_DATASOURCE_USERNAME=sa
+      - SPRING_DATASOURCE_PASSWORD=
+      - SPRING_MAIN_BANNER_MODE=off
+      - SPRING_DATASOURCE_INITIALIZATION_MODE=always
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.H2Dialect
+      - MANAGEMENT_SERVER_PORT=1979
+      - MANAGEMENT_ENDPOINT_INFO_ENABLED=true
+      - MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE=health,info,metrics
+    volumes:
+      - ./import.sql:/app/import.sql
+      - ./schema.sql:/app/schema.sql

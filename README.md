@@ -81,7 +81,7 @@ Para rodar os testes unitários, execute o comando abaixo:
 ```
 mvn test
 ```
-![testes unitarios](https://github.com/pauloruszel/controle-fluxo-caixa/assets/12766450/5f821cee-a0d5-415d-b873-cdaca2914c50)
+![testes unitarios](https://github.com/pauloruszel/controle-fluxo-caixa/assets/12766450/30cddadd-240e-4fe1-a2ac-d14a4f6af84d)
 
 ## Observability
 A aplicação possui o Spring Boot Actuator configurado para expor os endpoints /health, /info e /metrics na porta 1979. 

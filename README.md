@@ -9,6 +9,8 @@ A arquitetura é baseada em microserviços, utilizando o Spring Boot como framew
 - `Repository`:  responsável por se comunicar com o banco de dados.
 - `Model`: responsável por representar as entidades e objetos da aplicação.
 
+![api-fluxo-caixa drawio](https://user-images.githubusercontent.com/12766450/236968499-3a6b8f77-1b4e-43ab-bc54-f95e3e5b837c.png)
+
 ## Padrões de microserviço utilizados
 * Separação em camadas (Controller, Service e Repository)
 * Injeção de dependências com Spring

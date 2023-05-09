@@ -2,13 +2,6 @@
 Este é um projeto de API RESTful para gerenciamento de fluxo de caixa de uma empresa. Com ele, é possível cadastrar lançamentos de crédito e débito e verificar o saldo diário.
 
 ## 🔨 Desenho da arquitetura
-A arquitetura é baseada em microserviços, utilizando o Spring Boot como framework principal. A API possui as seguintes camadas:
-
-- `Controller`: responsável por receber as requisições HTTP e direcionar para o serviço correspondente.
-- `Service`: responsável por executar a lógica de negócio e se comunicar com o repositório.
-- `Repository`:  responsável por se comunicar com o banco de dados.
-- `Model`: responsável por representar as entidades e objetos da aplicação.
-
 ![api-fluxo-caixa drawio](https://user-images.githubusercontent.com/12766450/236968499-3a6b8f77-1b4e-43ab-bc54-f95e3e5b837c.png)
 
 ## Padrões de microserviço utilizados

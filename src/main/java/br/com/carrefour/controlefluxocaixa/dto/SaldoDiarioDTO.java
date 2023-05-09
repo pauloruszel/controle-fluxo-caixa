@@ -11,7 +11,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class SaldoDiarioDTO {
-
     private LocalDate data;
-    private BigDecimal saldo;
+    private BigDecimal saldoConsolidado;
+    private BigDecimal saldoNegativo;
+    private BigDecimal saldoTotal;
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -28,14 +29,24 @@ public class SaldoDiarioService {
     public SaldoDiarioDTO calcularSaldoDiario(LocalDate data) {
         List<Lancamento> lancamentos = lancamentoRepository.findByData(data);
 
-        var creditos = lancamentoCredito.calcular(lancamentos);
-        var debitos = lancamentoDebito.calcular(lancamentos);
+        if (lancamentos.isEmpty()) {
+            return null;
+        }
 
-        var saldo = creditos.subtract(debitos);
+        var totalCreditos = lancamentoCredito.calcular(lancamentos);
+        var totalDebitos = lancamentoDebito.calcular(lancamentos);
+        if (totalCreditos == null || totalDebitos == null) {
+            return null;
+        }
+
+        BigDecimal saldoConsolidado = totalCreditos.subtract(totalDebitos);
+        BigDecimal saldoNegativo = totalDebitos.compareTo(BigDecimal.ZERO) > 0 ? totalDebitos.abs().negate() : BigDecimal.ZERO;
 
         return SaldoDiarioDTO.builder()
                 .data(data)
-                .saldo(saldo)
+                .saldoTotal(totalCreditos)
+                .saldoConsolidado(saldoConsolidado)
+                .saldoNegativo(saldoNegativo)
                 .build();
     }
 }
